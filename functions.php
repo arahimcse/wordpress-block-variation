@@ -193,3 +193,39 @@ function themeslug_block_editor_assets() {
 }
 add_action( 'enqueue_block_editor_assets', 'themeslug_block_editor_assets' );
 
+
+/**
+ * Enqueue a block style for specific block
+ * Link @https://developer.wordpress.org/reference/functions/wp_enqueue_block_style/
+ * source @https://docs.google.com/document/d/1Dlko3wxaUeIAfh-gBHwUjOORqcaTXx8SiCkyo5-Ke3I/edit?tab=t.0
+ */
+function twentytwenyfive_query_looppppp() {
+				$args = array(
+					'handle' => "twentytwentyfive-looppppp",
+					'src'    => get_stylesheet_directory_uri('assets/css/query.loop.css'),
+					'var'	=> wp_get_theme(get_template())->get('Version'),
+					'path'	=> get_stylesheet_directory_uri('assets/css/query.loop.css')
+				);
+				wp_enqueue_block_style( "core/query", $args );
+		}
+add_action( 'init', 'twentytwenyfive_query_looppppp' );
+/**
+ * Enqueue block variation script
+ * source @https://developer.wordpress.org/reference/functions/wp_enqueue_script/
+ * @link https://developer.wordpress.org/news/2023/02/creating-custom-block-styles-in-wordpress-themes/
+ */
+
+function twentytwenyfive_query_loopppp() {
+    wp_enqueue_script(
+        'twentytwentyfive-loopppp',
+        get_theme_file_uri( 'assets/js/query.loop.js' ),
+        array( 
+            'wp-blocks', 
+            'wp-dom-ready', 
+            'wp-edit-post' 
+		),
+		wp_get_theme()->get('Version'),
+		true
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'twentytwenyfive_query_loopppp' );
