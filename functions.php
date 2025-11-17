@@ -229,3 +229,8 @@ function twentytwenyfive_query_loopppp() {
     );
 }
 add_action( 'enqueue_block_editor_assets', 'twentytwenyfive_query_loopppp' );
+
+/**
+ * use styles and stylesheets
+ * source @ https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/applying-styles-with-stylesheets/
+ */
